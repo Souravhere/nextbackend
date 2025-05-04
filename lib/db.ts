@@ -1,4 +1,3 @@
-import { promises } from "dns";
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI!; // in this '!' to make sure that the mogodb are present 
@@ -25,7 +24,7 @@ export async function connectionToDB(){
     if(!cached.promise){
         const opts = {
             bufferCommands: true,
-            maxPoolSize: 10
+            maxPoolSize: 10,
         }
     cached.promise = mongoose
     .connect(MONGODB_URI, opts)
