@@ -1,3 +1,6 @@
+import { IVideo } from "@/models/Video";
+
+export type VideoFormateData = Omit<IVideo, "_id">
 
 type FetchOptions = {
     method?:  "GET" | "POST" | "PUT" | "DELETE";
@@ -27,4 +30,24 @@ class ApiClient{
         }
         return response.json()
     }
+
+    // db call
+    async getVideso(){
+        return this.fetch<IVideo[]>("/videos")
+    }
+
+    // a singel video call
+    async  getAVideo(id:string) {
+        return this.fetch<IVideo>(`/videos/${id}`)
+    }
+
+    // to upload video
+    async uploadVideo(videodata:VideoFormateData){
+        return this.fetch("/videos",{
+            method:"POST",
+            body: videodata
+        })
+    }
 }
+
+export  const apiClient = new ApiClient()
