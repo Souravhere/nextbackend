@@ -32,7 +32,7 @@ class ApiClient{
     }
 
     // db call
-    async getVideso(){
+    async getVideos(){
         return this.fetch<IVideo[]>("/videos")
     }
 
