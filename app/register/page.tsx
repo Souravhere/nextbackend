@@ -30,7 +30,7 @@ export default function RegisterPage() {
                 return
             }
 
-            router.push("/login")
+            router.push("/data")
         } catch (error) {
             setError("An error occurred during registration")
         }
