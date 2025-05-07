@@ -1,3 +1,4 @@
+"use client"
 import { apiClient } from '@/lib/api-client'
 import { IVideo } from '@/models/Video'
 import React, { useEffect, useState } from 'react'
